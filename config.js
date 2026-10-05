@@ -29,13 +29,13 @@ window.CONFIG = {
   METRIKA_ID: '',
 
   // Firebase: необязательные аккаунты, облачный прогресс, счётчики, идеи, админка.
-  // Это публичные значения из консоли Firebase (не секрет). Пока стоят TODO —
-  // сайт работает как раньше: без входа и без обращений к Firebase.
+  // Это публичные значения из консоли Firebase (не секрет). Если вместо них поставить 'TODO',
+  // сайт будет работать как раньше: без входа и без обращений к Firebase.
   FIREBASE: {
-    apiKey: 'TODO',
-    authDomain: 'TODO',
-    projectId: 'TODO',
-    appId: 'TODO'
+    apiKey: 'AIzaSyCLBfwfqzfYbPIHTkZfdehu86gsnogeAU8',
+    authDomain: 'zalipni-e6adc.firebaseapp.com',
+    projectId: 'zalipni-e6adc',
+    appId: '1:145856221425:web:35b61eb151e119deac1950'
   },
 
   // Где физически хранятся данные Firebase (для политики), например 'Европа (eur3)'
