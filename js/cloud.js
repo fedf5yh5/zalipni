@@ -58,10 +58,19 @@
     return out;
   }
 
+  // Читаем через batchGet: если документа нет, это обычный ответ, а не ошибка 404 в консоли
   function restGet(path) {
     if (!enabled || !window.fetch) return Promise.resolve(null);
-    return fetch(REST + '/' + DOCS + '/' + path + '?key=' + encodeURIComponent(FB.apiKey))
-      .then(function (r) { return r.ok ? r.json().then(function (j) { return decodeFields(j.fields); }) : null; })
+    return fetch(REST + '/' + DOCS + ':batchGet?key=' + encodeURIComponent(FB.apiKey), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ documents: [DOCS + '/' + path] })
+    })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (list) {
+        var item = Array.isArray(list) ? list[0] : null;
+        return item && item.found ? decodeFields(item.found.fields) : null;
+      })
       .catch(function () { return null; });
   }
 
