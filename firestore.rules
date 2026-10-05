@@ -7,9 +7,9 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // ===== Админ. Впиши свой UID вместо TODO_ADMIN_UID (его покажет страница /admin) =====
+    // ===== Админ: UID владельца сайта (его показывает страница /admin). Второго админа — через запятую =====
     function isAdmin() {
-      return request.auth != null && request.auth.uid in ['TODO_ADMIN_UID'];
+      return request.auth != null && request.auth.uid in ['yZ5dDuUehBe67LmN7pqQTJVOR5i1'];
     }
 
     function signedIn() {
