@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Загадка дня — Залипни</title>
+  <meta name="description" content="Одна загадка в день, одна на всех. Отгадай за меньшее число попыток и поделись результатом квадратиками. Новая загадка — в полночь по Москве.">
+  <link rel="canonical" href="__SITE_URL__/riddle.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Загадка дня">
+  <meta property="og:description" content="Одна загадка в день, одна на всех. Отгадай за меньшее число попыток и поделись результатом квадратиками. Новая загадка — в полночь по Москве.">
+  <meta property="og:url" content="__SITE_URL__/riddle.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/data-riddles.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-riddle.js" defer></script>
+</head>
+<body data-page="riddle">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--lime)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Каждый день новая</span>
+      <h1>Загадка <em>дня</em></h1>
+      <p class="lead">Одна загадка на сутки — одна на всех. Новая появляется в полночь по Москве.</p>
+    </header>
+
+    <section class="stage" aria-label="Игра">
+      <div class="game riddle" data-riddle>
+        <p class="riddle__q">Загадка появится здесь, как только загрузится страница.</p>
+      </div>
+    </section>
+
+    <div class="ad-slot" data-ad="riddle"></div>
+
+    <section class="how prose" aria-labelledby="how-title">
+      <h2 id="how-title">Как играть</h2>
+      <ul>
+        <li>Прочитай загадку и впиши ответ — одно-два слова.</li>
+        <li>Попыток четыре. Мелкие опечатки прощаются, буквы «е» и «ё» не различаются.</li>
+        <li>Если совсем никак — возьми подсказку. Она честно отметится значком 💡 в результате.</li>
+        <li>Поделись результатом: друзья увидят квадратики, но не ответ. 🟩 — отгадано, 🟥 — мимо.</li>
+      </ul>
+      <p>Загадка общая для всех, поэтому можно устроить соревнование в классе или в чате: кто отгадает с меньшего числа попыток. Отгадываешь каждый день — растёт серия.</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

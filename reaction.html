@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тест реакции — Залипни</title>
+  <meta name="description" content="Проверь, насколько быстрая у тебя реакция: жми, как только поле загорится зелёным. Рекорд и среднее время сохраняются.">
+  <link rel="canonical" href="__SITE_URL__/reaction.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Тест реакции">
+  <meta property="og:description" content="Проверь, насколько быстрая у тебя реакция: жми, как только поле загорится зелёным. Рекорд и среднее время сохраняются.">
+  <meta property="og:url" content="__SITE_URL__/reaction.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-reaction.js" defer></script>
+</head>
+<body data-page="reaction">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--yellow)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Игра на минуту</span>
+      <h1>Тест <em>реакции</em></h1>
+      <p class="lead">Жми, как только поле загорится зелёным. Рано — не считается.</p>
+    </header>
+
+    <section class="stage" aria-label="Игра">
+      <div class="game reaction">
+        <button class="reaction-zone" type="button" data-reaction data-mode="idle">
+          <span class="reaction-zone__title" data-reaction-title>Нажми, чтобы начать</span>
+          <span class="reaction-zone__sub" data-reaction-sub>Сначала поле станет розовым. Жди зелёного и жми как можно быстрее.</span>
+        </button>
+        <dl class="stats">
+          <div><dt>Рекорд</dt><dd data-reaction-best>—</dd></div>
+          <div><dt>Среднее (5 последних)</dt><dd data-reaction-avg>—</dd></div>
+          <div><dt>Попыток</dt><dd data-reaction-count>0</dd></div>
+        </dl>
+        <button class="btn btn--ghost" type="button" data-reaction-share hidden>Поделиться результатом</button>
+      </div>
+    </section>
+
+    <div class="ad-slot" data-ad="reaction"></div>
+
+    <section class="how prose" aria-labelledby="how-title">
+      <h2 id="how-title">Что считается хорошей реакцией</h2>
+      <p>У большинства людей реакция на свет — примерно 200–300 миллисекунд, то есть меньше трети секунды. Результат быстрее 200 мс — уже очень круто. Быстрее 150 мс почти не бывает: скорее всего, нажатие было наугад.</p>
+      <ul>
+        <li>Играй в спокойной обстановке: отвлекающие звуки и уведомления заметно замедляют реакцию.</li>
+        <li>Не угадывай момент. Если нажать раньше, засчитается фальстарт.</li>
+        <li>Сделай несколько попыток: среднее из пяти последних честнее одного случайного рекорда.</li>
+      </ul>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

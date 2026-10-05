@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Залипни — мини-игры, тесты и секреты онлайн</title>
+  <meta name="description" content="Загадка дня, тест «Какая ты клавиша?», генераторы оправданий и мемов, тест реакции и угадайка по эмодзи. А ещё по сайту спрятаны секреты. Без регистрации.">
+  <link rel="canonical" href="__SITE_URL__/">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Залипни — мини-игры, тесты и секреты">
+  <meta property="og:description" content="Залипни на минутку: загадка дня, тесты, мини-игры и спрятанные по сайту секреты.">
+  <meta property="og:url" content="__SITE_URL__/">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-home.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main">
+    <section class="hero wrap">
+      <span class="kicker">Без регистрации и смс</span>
+      <h1 class="hero__title">Залипни на&nbsp;<em>минутку</em></h1>
+      <p class="hero__wink">Мы никому не скажем <span class="hero__eyes" data-eyes>👀</span></p>
+      <p class="hero__sub">Тесты, мини-игры и генераторы, которыми хочется делиться. А ещё по сайту спрятаны секреты — найдёшь все?</p>
+    </section>
+
+    <section class="wrap" aria-labelledby="all-title">
+      <div class="section-head">
+        <h2 class="kicker" id="all-title">Во что залипнуть</h2>
+      </div>
+
+      <div class="grid">
+        <a class="tile tile--feature tile--wide" href="riddle.html" style="--c: var(--lime)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">🧩</span>
+            <span class="badge" data-riddle-no>Новая каждый день</span>
+          </div>
+          <h2 class="tile__title">Загадка дня</h2>
+          <p class="tile__text">Одна загадка на сутки, одна на всех. Отгадай и похвастайся в чате квадратиками.</p>
+          <div class="tile__foot">
+            <span class="squares" aria-hidden="true"><i class="is-hit"></i><i></i><i class="is-hit"></i><i class="is-hit"></i></span>
+            <span class="tile__cta" data-riddle-status>Разгадать →</span>
+          </div>
+        </a>
+
+        <a class="tile tile--wide" href="quiz.html" style="--c: var(--violet)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">⌨️</span>
+          </div>
+          <span class="tile__tag">Тест</span>
+          <h2 class="tile__title">Какая ты клавиша?</h2>
+          <p class="tile__text" data-stat="quiz">6 вопросов — и станет ясно, ты Пробел, Enter или вечный Caps Lock.</p>
+        </a>
+
+        <a class="tile" href="excuse.html" style="--c: var(--pink)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">🙈</span>
+          </div>
+          <span class="tile__tag">Генератор</span>
+          <h2 class="tile__title">Генератор оправданий</h2>
+          <p class="tile__text">Когда не сделано, а объяснить надо.</p>
+        </a>
+
+        <a class="tile" href="meme.html" style="--c: var(--cyan)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">🎭</span>
+          </div>
+          <span class="tile__tag">Генератор</span>
+          <h2 class="tile__title">Какой ты мем сегодня</h2>
+          <p class="tile__text">Один тап — и вайб на день готов.</p>
+        </a>
+
+        <a class="tile" href="reaction.html" style="--c: var(--yellow)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">⚡</span>
+          </div>
+          <span class="tile__tag">Игра</span>
+          <h2 class="tile__title">Тест реакции</h2>
+          <p class="tile__text" data-stat="reaction">Жми, как только экран загорится.</p>
+        </a>
+
+        <a class="tile" href="emoji.html" style="--c: var(--orange)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">🤔</span>
+          </div>
+          <span class="tile__tag">Игра</span>
+          <h2 class="tile__title">Угадай по эмодзи</h2>
+          <p class="tile__text" data-stat="emoji">Пословицы и фразы одними смайлами.</p>
+        </a>
+
+        <a class="tile tile--wide tile--secrets" href="secrets.html" style="--c: var(--lime)">
+          <div class="tile__top">
+            <span class="tile__emoji" aria-hidden="true">🔐</span>
+          </div>
+          <span class="tile__tag">Секреты</span>
+          <h2 class="tile__title">Найдено <span data-secret-found>0</span> из <span data-secret-total>10</span></h2>
+          <p class="tile__text">По сайту спрятаны пасхалки. Соберёшь все — откроется тайная комната.</p>
+          <div class="progress" data-secret-progress aria-hidden="true"><i></i></div>
+        </a>
+      </div>
+
+      <p class="ink" data-ink>Тсс… это написано невидимыми чернилами.</p>
+    </section>
+
+    <div class="ad-slot wrap" data-ad="home"></div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

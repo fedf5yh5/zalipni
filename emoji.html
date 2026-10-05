@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Угадай по эмодзи — Залипни</title>
+  <meta name="description" content="Угадай пословицы, выражения и фразы, зашифрованные эмодзи. Одна минута, четыре варианта ответа, больше сорока загадок.">
+  <link rel="canonical" href="__SITE_URL__/emoji.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Угадай по эмодзи">
+  <meta property="og:description" content="Угадай пословицы, выражения и фразы, зашифрованные эмодзи. Одна минута, четыре варианта ответа, больше сорока загадок.">
+  <meta property="og:url" content="__SITE_URL__/emoji.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/data-emoji.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-emoji.js" defer></script>
+</head>
+<body data-page="emoji">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--orange)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Игра на минуту</span>
+      <h1>Угадай по <em>эмодзи</em></h1>
+      <p class="lead">Пословицы, выражения и фразы, зашифрованные смайлами. Сколько отгадаешь за минуту?</p>
+    </header>
+
+    <section class="stage" aria-label="Игра">
+      <div class="game eg" data-emoji-game>
+        <div class="eg__intro">
+          <p class="eg__emoji" aria-hidden="true">🍜👂</p>
+          <h2 class="quiz__q">60 секунд. Четыре варианта.</h2>
+          <p class="quiz__lead">Смотри на эмодзи и выбирай, что они означают. Правильный ответ — плюс очко, ошибка просто тратит время.</p>
+          <button class="btn" type="button" data-emoji-start>Поехали</button>
+          <p class="quiz__prev" data-emoji-best></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" data-ad="emoji"></div>
+
+    <section class="how prose" aria-labelledby="how-title">
+      <h2 id="how-title">Подсказки для новичков</h2>
+      <ul>
+        <li>Над эмодзи написано, что загадано: пословица, выражение или просто фраза.</li>
+        <li>Читай смайлы слева направо, как предложение: 🍜👂 — это «вешать лапшу на уши».</li>
+        <li>Стрелки ➡️ показывают действие, а знак 🟰 — что одно равно другому.</li>
+      </ul>
+      <p>Загадки перемешиваются каждый раунд, а лучший результат сохраняется. Соревнуйся с друзьями: кто наберёт больше за одну минуту?</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

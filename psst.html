@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тсс… — Залипни</title>
+  <meta name="description" content="Самая тихая страница интернета.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Тсс…">
+  <meta property="og:description" content="Самая тихая страница интернета.">
+  <meta property="og:url" content="__SITE_URL__/psst.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-psst.js" defer></script>
+</head>
+<body data-page="psst">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--pink)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Тсс…</span>
+      <h1>Тут очень <em>тихо</em></h1>
+      <p class="lead">Сюда ведёт точка в самом низу сайта. Обычно на точки никто не нажимает. А ты нажимаешь.</p>
+    </header>
+
+    <section class="quiet" aria-labelledby="quiet-title">
+      <h2 class="quiet__title" id="quiet-title">Самая тихая страница интернета</h2>
+      <p class="quiet__text">Без уведомлений, без дедлайнов, без «ты где?». Можно просто посидеть. Сколько выдержишь?</p>
+      <p class="quiet__timer" aria-live="off"><span class="sr-only">Ты в тишине уже </span><b data-quiet-timer>0:00</b></p>
+      <button class="btn btn--pink" type="button" data-quiet-break>Нарушить тишину</button>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

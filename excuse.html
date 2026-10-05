@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генератор оправданий — Залипни</title>
+  <meta name="description" content="Домашка не сделана, сообщение без ответа, будильник проигнорирован? Генератор выдаст железное оправдание за секунду — больше 70 тысяч вариантов.">
+  <link rel="canonical" href="__SITE_URL__/excuse.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Генератор оправданий">
+  <meta property="og:description" content="Домашка не сделана, сообщение без ответа, будильник проигнорирован? Генератор выдаст железное оправдание за секунду — больше 70 тысяч вариантов.">
+  <meta property="og:url" content="__SITE_URL__/excuse.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/data-excuses.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-generator.js" defer></script>
+</head>
+<body data-page="excuse">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--pink)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Генератор</span>
+      <h1>Генератор <em>оправданий</em></h1>
+      <p class="lead">Когда не сделано, а объяснить надо. Жми — и оправдание готово.</p>
+    </header>
+
+    <section class="stage" aria-label="Игра">
+      <div class="game gen" data-gen="excuse">
+        <p class="gen__label">Оправдание №<span data-gen-no>1</span></p>
+        <p class="gen__text" data-gen-text aria-live="polite">Не поверишь, но роутер ушёл в отпуск и забыл предупредить. Я считаю, это форс-мажор.</p>
+        <div class="gen__actions">
+          <button class="btn btn--pink" type="button" data-gen-again>Ещё раз</button>
+          <button class="btn btn--ghost" type="button" data-gen-share>Поделиться</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" data-ad="excuse"></div>
+
+    <section class="how prose" aria-labelledby="how-title">
+      <h2 id="how-title">Как пользоваться</h2>
+      <p>Нажимай «Ещё раз», пока не найдёшь то самое оправдание, а потом отправь его другу, в чат класса или просто посмейся. Каждое оправдание собирается из трёх частей, и вариантов больше 70 тысяч, так что повторы почти невозможны.</p>
+      <p>Важно: генератор — шутка. Настоящие дела всё-таки лучше сделать, а если не получилось — честно сказать. Но поднять настроение перед этим разговором никто не запрещал.</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

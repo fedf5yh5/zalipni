@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тест: какая ты клавиша? — Залипни</title>
+  <meta name="description" content="Шесть вопросов о тебе — и станет ясно, какая ты клавиша: Пробел, Enter, Esc, Caps Lock, Ctrl+Z или F5. Результат можно скачать картинкой и отправить друзьям.">
+  <link rel="canonical" href="__SITE_URL__/quiz.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Тест: какая ты клавиша?">
+  <meta property="og:description" content="Шесть вопросов о тебе — и станет ясно, какая ты клавиша: Пробел, Enter, Esc, Caps Lock, Ctrl+Z или F5. Результат можно скачать картинкой и отправить друзьям.">
+  <meta property="og:url" content="__SITE_URL__/quiz.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/data-quiz.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-quiz.js" defer></script>
+</head>
+<body data-page="quiz">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--violet)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Тест</span>
+      <h1>Какая ты <em>клавиша</em>?</h1>
+      <p class="lead">Шесть вопросов о тебе. В конце — карточка, которую не стыдно отправить в чат.</p>
+    </header>
+
+    <section class="stage" aria-label="Игра">
+      <div class="game quiz" data-quiz>
+        <div class="quiz__intro">
+          <p class="keys" aria-hidden="true"><kbd>Пробел</kbd><kbd>Enter</kbd><kbd>Esc</kbd><kbd>Caps Lock</kbd><kbd>Ctrl+Z</kbd><kbd>F5</kbd></p>
+          <h2 class="quiz__q">6 вопросов — 1 клавиша</h2>
+          <p class="quiz__lead">Отвечай честно: правильных ответов нет. В конце будет картинка с результатом — её можно скачать или сразу отправить друзьям.</p>
+          <button class="btn" type="button" data-quiz-start>Начать тест</button>
+          <p class="quiz__prev" data-quiz-prev hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" data-ad="quiz"></div>
+
+    <section class="how prose" aria-labelledby="how-title">
+      <h2 id="how-title">Кто есть кто на клавиатуре</h2>
+      <ul>
+        <li><b>Пробел</b> — спокойствие и умение отдыхать без чувства вины.</li>
+        <li><b>Enter</b> — решительность: сказано — сделано.</li>
+        <li><b>Esc</b> — мастер красивого побега из неловких ситуаций.</li>
+        <li><b>Caps Lock</b> — эмоции на максимум и смех на всю улицу.</li>
+        <li><b>Ctrl+Z</b> — перфекционизм и машина времени в голове.</li>
+        <li><b>F5</b> — вечное обновление, новые хобби каждую неделю.</li>
+      </ul>
+      <p>Тест шуточный: он не ставит диагнозов, а просто помогает посмеяться над собой. Пройди с друзьями и сравните, кто какая клавиша, — из вас вполне может получиться целая клавиатура.</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

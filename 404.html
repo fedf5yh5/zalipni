@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <script>
+    // Эта страница открывается по любому неверному адресу, даже «глубокому».
+    // Сначала говорим браузеру, где корень сайта, и только потом подключаем файлы —
+    // иначе он заранее попробует загрузить их не из той папки.
+    (function () {
+      if (/^https?:$/.test(location.protocol)) {
+        var seg = location.pathname.split('/')[1];
+        var root = /\.github\.io$/.test(location.hostname) && seg ? '/' + seg + '/' : '/';
+        document.write('<base href="' + root + '">');
+      }
+      document.write(
+        '<link rel="icon" href="favicon.ico" sizes="32x32">' +
+        '<link rel="icon" href="img/favicon.svg" type="image/svg+xml">' +
+        '<link rel="stylesheet" href="css/style.css">' +
+        '<script src="config.js" defer><\/script>' +
+        '<script src="js/secrets.js" defer><\/script>' +
+        '<script src="js/core.js" defer><\/script>' +
+        '<script src="js/eggs.js" defer><\/script>'
+      );
+    })();
+  </script>
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Страница не найдена — Залипни</title>
+  <meta name="description" content="Такой страницы нет. Но на сайте много других — загляни на главную.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Страница не найдена">
+  <meta property="og:description" content="Такой страницы нет. Но на сайте много других — загляни на главную.">
+  <meta property="og:url" content="__SITE_URL__/404.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-page="404">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--orange)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Ошибка 404</span>
+      <h1>Такой страницы <em>нет</em></h1>
+      <p class="lead">Ссылка сломалась, страница переехала или её никогда не существовало.</p>
+    </header>
+
+    <section class="card lost">
+      <p class="lost__code" aria-hidden="true">404</p>
+      <h2 class="lost__title">Потеряться — тоже достижение</h2>
+      <p>Загляни в счётчик секретов в шапке: кажется, за эту прогулку тебе кое-что засчитали.</p>
+      <div class="lost__actions">
+        <a class="btn" href="index.html" data-back>На главную</a>
+        <a class="btn btn--ghost" href="riddle.html">Загадка дня</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

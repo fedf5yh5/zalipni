@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Политика конфиденциальности — Залипни</title>
+  <meta name="description" content="Какие данные хранит сайт «Залипни»: только прогресс игр в твоём браузере. Мы не собираем персональные данные и не используем cookies.">
+  <link rel="canonical" href="__SITE_URL__/privacy.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Политика конфиденциальности">
+  <meta property="og:description" content="Какие данные хранит сайт «Залипни»: только прогресс игр в твоём браузере. Мы не собираем персональные данные и не используем cookies.">
+  <meta property="og:url" content="__SITE_URL__/privacy.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+</head>
+<body data-page="privacy">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--pink)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Документы</span>
+      <h1>Политика <em>конфиденци&shy;альности</em></h1>
+      <p class="lead">Коротко: мы не собираем персональные данные. Подробно — ниже.</p>
+    </header>
+
+    <article class="prose">
+      <h2>1. Самое главное</h2>
+      <p>На сайте нет регистрации, форм с личными данными и комментариев. Мы не узнаём твоё имя, телефон, почту или адрес. Всё, что сайт запоминает о твоей игре, хранится только в твоём браузере на твоём устройстве.</p>
+
+      <h2>2. Кто отвечает за сайт</h2>
+      <p>Оператор сайта: <span data-config="OPERATOR">уточняется</span>.<br>Почта для вопросов о данных: <span data-config="EMAIL">уточняется</span>.</p>
+
+      <h2>3. Что хранится на твоём устройстве</h2>
+      <p>Сайт использует хранилище браузера (localStorage), чтобы игры помнили твой прогресс:</p>
+      <ul>
+        <li>какие секреты найдены и когда;</li>
+        <li>ответы и статистика загадки дня (сколько сыграно, серия побед);</li>
+        <li>рекорды в тесте реакции и в «Угадай по эмодзи»;</li>
+        <li>последний результат теста «Какая ты клавиша?»;</li>
+        <li>какие разделы уже открывались — для секрета «Исследователь».</li>
+      </ul>
+      <p>Ещё сайт ненадолго запоминает в sessionStorage, докуда была прокручена страница, чтобы при возврате из игры страница открылась на том же месте. Эти записи стираются, когда закрываешь вкладку.</p>
+      <p>Эти данные никуда не отправляются: у сайта нет сервера, который мог бы их принять. Мы их не видим.</p>
+
+      <h2>4. Как всё удалить</h2>
+      <p>Очисти данные сайта в настройках браузера — и весь прогресс исчезнет. Чтобы сбросить только секреты, нажми «Начать поиски заново» на странице <a href="secrets.html">«Секреты»</a>.</p>
+
+      <h2>5. Cookies и аналитика</h2>
+      <p data-if-no-metrika>Сайт не использует cookies и счётчики аналитики.</p>
+      <div data-if-metrika hidden>
+        <p>Мы используем сервис веб-аналитики Яндекс Метрика, чтобы понимать, какими разделами пользуются чаще. Метрика собирает обезличенные технические данные: тип устройства и браузера, примерный регион по IP-адресу, просмотренные страницы и время на сайте. Для этого она использует cookies.</p>
+        <p>Мы не можем узнать по этим данным, кто ты. Отключить сбор можно, запретив cookies в настройках браузера.</p>
+      </div>
+
+      <h2>6. Шрифты и сторонние сервисы</h2>
+      <p>Все шрифты, картинки и скрипты загружаются с того же адреса, что и сам сайт. Мы не подключаем кнопки соцсетей, чужие виджеты и трекеры.</p>
+
+      <h2>7. Хостинг</h2>
+      <p>Сайт размещён на хостинге GitHub Pages. Как и любой хостинг, он может обрабатывать технические данные запросов (например, IP-адрес) для защиты от атак и сбоев — по своим собственным правилам. Мы к этим данным доступа не имеем.</p>
+
+      <h2>8. Кнопка «Поделиться»</h2>
+      <p>Когда ты нажимаешь «Поделиться», открывается стандартное меню твоего устройства или ссылка копируется в буфер обмена. Что и кому отправить, решаешь только ты, а сайт не узнаёт, куда ушла ссылка.</p>
+
+      <h2>9. Реклама</h2>
+      <p>Сейчас рекламы на сайте нет. Если она появится, мы заранее обновим эту страницу: рекламные сети могут использовать cookies, и об этом нужно знать.</p>
+
+      <h2>10. Изменения</h2>
+      <p>Если что-то поменяется, мы обновим эту страницу и дату ниже.</p>
+      <p class="prose__date">Последнее обновление: 4 октября 2026 года.</p>
+
+      <p class="read-end" data-read-end>— Конец документа. Да, это правда всё. —</p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

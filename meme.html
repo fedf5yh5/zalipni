@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Какой ты мем сегодня — Залипни</title>
+  <meta name="description" content="Нажми кнопку и узнай, какой ты мем сегодня: герой, его занятие и подпись. Десятки тысяч смешных сочетаний — делись с друзьями.">
+  <link rel="canonical" href="__SITE_URL__/meme.html">
+  <meta name="theme-color" content="#0e0c16">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Залипни">
+  <meta property="og:title" content="Какой ты мем сегодня">
+  <meta property="og:description" content="Нажми кнопку и узнай, какой ты мем сегодня: герой, его занятие и подпись. Десятки тысяч смешных сочетаний — делись с друзьями.">
+  <meta property="og:url" content="__SITE_URL__/meme.html">
+  <meta property="og:image" content="__SITE_URL__/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Залипни — мини-игры, тесты и секреты">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/unbounded-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="js/secrets.js" defer></script>
+  <script src="js/data-memes.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/eggs.js" defer></script>
+  <script src="js/page-generator.js" defer></script>
+</head>
+<body data-page="meme">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <noscript><p class="noscript">Игры работают только с включённым JavaScript. Тексты на странице доступны и без него.</p></noscript>
+  <div id="site-header" class="site-header"></div>
+
+  <main id="main" class="page wrap" style="--c: var(--cyan)">
+    <a class="back" href="index.html" data-back>← Все штуки</a>
+    <header class="page-head">
+      <span class="kicker">Генератор</span>
+      <h1>Какой ты <em>мем</em> сегодня</h1>
+      <p class="lead">Один тап — и вайб на день определён. Не понравился — жми ещё.</p>
+    </header>
+
+    <section class="stage" aria-label="Игра">
+      <div class="game gen gen--meme" data-gen="meme">
+        <div class="meme">
+          <p class="gen__label">Мем №<span data-gen-no>1</span></p>
+          <span class="meme__emoji" data-meme-emoji aria-hidden="true">🐈</span>
+          <p class="meme__text" data-gen-text aria-live="polite">Ты сегодня — кот, который делает вид, что так и было задумано.</p>
+          <p class="meme__caption" data-meme-caption>«это не лень, это энергосбережение»</p>
+          <div class="meme__vibe">
+            <span>Вайб дня</span>
+            <b data-meme-vibe>87%</b>
+            <div class="progress" data-meme-bar aria-hidden="true"><i></i></div>
+          </div>
+        </div>
+        <div class="gen__actions">
+          <button class="btn btn--cyan" type="button" data-gen-again>Ещё раз</button>
+          <button class="btn btn--ghost" type="button" data-gen-share>Поделиться</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" data-ad="meme"></div>
+
+    <section class="how prose" aria-labelledby="how-title">
+      <h2 id="how-title">Как это работает</h2>
+      <p>Каждый мем собирается из трёх частей: героя, того, чем он занят, и подписи. Сочетаний десятки тысяч, поэтому у тебя и у друга почти наверняка выпадут разные мемы. Сравните!</p>
+      <p>Совет: отправь результат в общий чат и попроси всех сгенерировать свой. Самые смешные сочетания обычно получаются с картошкой и пельменем.</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>
