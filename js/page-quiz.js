@@ -89,6 +89,7 @@
     var key = winner();
     App.store.set('quiz', { key: key, name: Q.results[key].name, at: Date.now() });
     App.markTried('quiz');
+    if (window.Cloud) window.Cloud.count('stats/quiz', key, 'quiz:' + key);
     renderResult(key);
   }
 
@@ -109,6 +110,7 @@
           '<li><span>Слабое место</span>' + esc(r.weak) + '</li>' +
           '<li><span>Лучшая пара</span>' + esc(r.pair) + '</li>' +
         '</ul>' +
+        '<p class="guest-hint" data-guest-hint hidden></p>' +
         '<button class="link-btn" type="button" data-quiz-restart>Пройти ещё раз</button>' +
       '</div>';
     box.querySelector('.quiz-result__title').focus({ preventScroll: true });

@@ -1391,6 +1391,152 @@ kbd {
 .lost__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-2); }
 
 /* ==========================================================================
+   Необязательный аккаунт: кнопка в шапке, окно входа, подсказка гостю
+   ========================================================================== */
+.site-header__right { display: flex; align-items: center; gap: var(--s-2); }
+.account-slot:empty { display: none; }
+
+.account-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--s-4) 0 var(--s-3);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--bg-2);
+  color: var(--text);
+  font: 600 var(--fs-s)/1 var(--font-body);
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+.account-btn:hover { border-color: var(--cyan); }
+.account-btn.is-on { border-color: color-mix(in oklab, var(--cyan) 55%, transparent); }
+.account-btn__icon { font-size: 1rem; line-height: 1; }
+@media (max-width: 459px) {
+  .account-btn { width: 44px; padding: 0; }
+  .account-btn__label {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+.guest-hint {
+  margin-top: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-s);
+  border: 1px dashed var(--line-strong);
+  font-size: var(--fs-s);
+  color: var(--text-2);
+}
+.guest-hint[hidden] { display: none; }
+.guest-hint .link-btn { display: inline; min-height: 0; font-size: inherit; }
+
+.modal {
+  width: min(440px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-l);
+  background: var(--bg-2);
+  color: var(--text);
+  box-shadow: var(--shadow-float);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.modal::backdrop { background: rgb(5 4 10 / 0.72); }
+/* Запасной вариант для браузеров без <dialog> */
+.modal[open]:not(:modal) { position: fixed; inset: 0; z-index: var(--z-overlay); margin: auto; height: fit-content; }
+.modal__box { position: relative; padding: var(--s-6) var(--s-5) var(--s-5); }
+.modal__close {
+  position: absolute;
+  top: var(--s-2);
+  right: var(--s-2);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--r-s);
+  background: transparent;
+  color: var(--text-2);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+.modal__close:hover { background: var(--line); color: var(--text); }
+.modal__title { padding-right: 40px; font-size: var(--fs-l); }
+.modal__text { margin-top: var(--s-2); font-size: var(--fs-s); color: var(--text-2); }
+.modal__text b { color: var(--text); overflow-wrap: anywhere; }
+.modal__note {
+  margin-top: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-s);
+  background: color-mix(in oklab, var(--pink) 12%, var(--bg-2));
+  font-size: var(--fs-s);
+}
+.check { display: flex; align-items: flex-start; gap: var(--s-2); margin-top: var(--s-4); font-weight: 600; cursor: pointer; }
+.check input { flex: none; width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--lime); }
+.modal__small { margin-top: var(--s-2); font-size: var(--fs-xs); line-height: 1.5; color: var(--text-3); }
+.modal__small a { color: var(--text-2); }
+.modal__small .link-btn { display: inline; min-height: 0; font-size: inherit; }
+.modal code { font-size: 0.75rem; color: var(--text-2); word-break: break-all; }
+.modal__google { margin-top: var(--s-4); }
+.modal__google span { font-family: var(--font-display); font-weight: 900; }
+.modal__or { display: flex; align-items: center; gap: var(--s-3); margin: var(--s-4) 0 var(--s-3); font-size: var(--fs-xs); color: var(--text-3); }
+.modal__or::before, .modal__or::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-1); padding: var(--s-1); border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
+.tabs__btn {
+  min-height: 40px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-2);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.tabs__btn.is-active { background: var(--bg-3); color: var(--text); }
+.modal__form { display: grid; gap: var(--s-2); margin-top: var(--s-3); }
+.modal__label { margin-top: var(--s-1); font-size: var(--fs-s); font-weight: 600; }
+.modal__form .btn { margin-top: var(--s-2); }
+.modal__status { min-height: 1.4em; margin-top: var(--s-3); font-size: var(--fs-s); font-weight: 600; }
+.modal__status.is-error { color: var(--pink); }
+.modal__status.is-ok { color: var(--lime); }
+.modal__row { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+.modal__warn {
+  margin-top: var(--s-4);
+  padding: var(--s-3);
+  border-radius: var(--r-m);
+  border: 1px solid color-mix(in oklab, var(--yellow) 40%, transparent);
+  background: color-mix(in oklab, var(--yellow) 8%, var(--bg-2));
+  font-size: var(--fs-s);
+}
+.modal__warn .modal__row { margin-top: var(--s-2); }
+.modal__warn .btn { min-height: 44px; padding: var(--s-2) var(--s-3); font-size: 0.8125rem; }
+.modal .btn--block + .btn--block { margin-top: var(--s-2); }
+.modal__danger { margin-top: var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--line); }
+.link-btn--danger { color: var(--pink); }
+.btn--danger { --btn-bg: var(--pink); --btn-shadow: var(--orange); }
+
+/* Форма идеи (под карточкой «Чего-то не хватает?») */
+.idea__actions { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.idea-form { display: grid; gap: var(--s-2); grid-column: 1 / -1; }
+.idea-form[hidden] { display: none; }
+.idea-form__label { font-size: var(--fs-s); font-weight: 600; }
+.idea-form__text { min-height: 96px; line-height: 1.5; resize: vertical; }
+.idea-form__row { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.idea-form__count { font-size: var(--fs-xs); font-variant-numeric: tabular-nums; color: var(--text-3); }
+.idea-form__status { min-height: 1.4em; font-size: var(--fs-s); font-weight: 600; }
+.idea-form__status.is-error { color: var(--pink); }
+.idea-form__status.is-ok { color: var(--lime); }
+
+/* ==========================================================================
    Плавное появление при прокрутке.
    Прячем только когда скрипт добавил класс js-reveal — без JS всё видно сразу.
    ========================================================================== */

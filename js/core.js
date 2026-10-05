@@ -31,6 +31,13 @@
       try {
         localStorage.setItem(KEY_PREFIX + key, JSON.stringify(value));
       } catch (e) { /* хранилище недоступно — просто не запоминаем */ }
+      document.dispatchEvent(new CustomEvent('store:change', { detail: { key: key } }));
+    },
+    remove: function (key) {
+      try {
+        localStorage.removeItem(KEY_PREFIX + key);
+      } catch (e) { /* ничего */ }
+      document.dispatchEvent(new CustomEvent('store:change', { detail: { key: key } }));
     }
   };
 
@@ -153,11 +160,14 @@
       '<header class="site-header">' +
         '<div class="wrap site-header__in">' +
           '<a class="logo" href="index.html" data-logo' + (isHome ? ' aria-current="page"' : '') + '>' + esc(siteName()) + '</a>' +
-          '<a class="secret-pill" href="secrets.html" data-secret-pill>' +
-            '<span aria-hidden="true">🔐</span>' +
-            '<span class="secret-pill__num"><span class="secret-pill__label">Найдено секретов: </span><b data-secret-found>0</b> из <span data-secret-total>0</span></span>' +
-            '<span class="secret-pill__bar" aria-hidden="true"><i></i></span>' +
-          '</a>' +
+          '<div class="site-header__right">' +
+            '<a class="secret-pill" href="secrets.html" data-secret-pill>' +
+              '<span aria-hidden="true">🔐</span>' +
+              '<span class="secret-pill__num"><span class="secret-pill__label">Найдено секретов: </span><b data-secret-found>0</b> из <span data-secret-total>0</span></span>' +
+              '<span class="secret-pill__bar" aria-hidden="true"><i></i></span>' +
+            '</a>' +
+            '<span class="account-slot" data-account-slot></span>' +
+          '</div>' +
         '</div>' +
       '</header>';
   }
@@ -224,6 +234,10 @@
     var footer = document.getElementById('site-footer');
     if (!footer) return;
     var tg = hasTelegram();
+    var cloud = !!(window.Cloud && window.Cloud.enabled);
+    var tgButton = tg
+      ? '<a class="btn ' + (cloud ? 'btn--ghost' : 'btn--pink') + '" href="' + esc(CONFIG.TG_URL) + '" target="_blank" rel="noopener">' + (cloud ? 'Telegram' : 'Предложить идею') + '</a>'
+      : '<button class="btn ' + (cloud ? 'btn--ghost' : 'btn--pink') + '" type="button" data-idea-soon>' + (cloud ? 'Telegram' : 'Предложить идею') + ' <span class="btn__soon">скоро</span></button>';
     var sec = document.createElement('section');
     sec.className = 'idea wrap';
     sec.innerHTML =
@@ -232,15 +246,27 @@
           '<p class="idea__title">Чего-то не хватает?</p>' +
           '<p class="idea__text">Придумай тест, игру или новый секрет — лучшие идеи появятся на сайте.</p>' +
         '</div>' +
-        (tg
-          ? '<a class="btn btn--pink" href="' + esc(CONFIG.TG_URL) + '" target="_blank" rel="noopener">Предложить идею</a>'
-          : '<button class="btn btn--pink" type="button" data-idea-soon>Предложить идею <span class="btn__soon">скоро</span></button>') +
+        '<div class="idea__actions">' +
+          (cloud ? '<button class="btn btn--pink" type="button" data-idea-toggle aria-expanded="false" aria-controls="idea-form">Предложить идею</button>' : '') +
+          tgButton +
+        '</div>' +
+        (cloud
+          ? '<form class="idea-form" id="idea-form" data-idea-form hidden>' +
+              '<label class="idea-form__label" for="idea-text">Твоя идея</label>' +
+              '<textarea class="field idea-form__text" id="idea-text" name="text" rows="3" maxlength="300" required></textarea>' +
+              '<div class="idea-form__row">' +
+                '<span class="idea-form__count" data-idea-count>0 / 300</span>' +
+                '<button class="btn" type="submit">Отправить</button>' +
+              '</div>' +
+              '<p class="idea-form__status" data-idea-status aria-live="polite"></p>' +
+            '</form>'
+          : '') +
       '</div>';
     footer.before(sec);
     var soon = sec.querySelector('[data-idea-soon]');
     if (soon) {
       soon.addEventListener('click', function () {
-        toast('Канал для идей вот-вот откроется', { icon: '💡', text: 'Загляни чуть позже — кнопка оживёт.' });
+        toast('Канал вот-вот откроется', { icon: '💡', text: 'Загляни чуть позже — кнопка оживёт.' });
       });
     }
   }
@@ -253,7 +279,7 @@
       '<footer class="site-footer">' +
         '<div class="wrap site-footer__in">' +
           '<p class="site-footer__brand">' + esc(siteName()) + '</p>' +
-          '<p>Маленькие штуки, чтобы залипнуть. Без регистрации и без сбора данных.</p>' +
+          '<p>Маленькие штуки, чтобы залипнуть. Регистрация не нужна.</p>' +
           '<nav class="site-footer__nav" aria-label="О сайте">' +
             '<a href="about.html">О проекте</a>' +
             '<a href="secrets.html">Секреты</a>' +
@@ -293,6 +319,10 @@
         el.textContent = v;
       }
     });
+    var fb = !!(window.Cloud && window.Cloud.enabled);
+    document.querySelectorAll('[data-if-firebase]').forEach(function (el) { el.hidden = !fb; });
+    document.querySelectorAll('[data-if-no-firebase]').forEach(function (el) { el.hidden = fb; });
+    document.querySelectorAll('[data-config-age]').forEach(function (el) { el.textContent = String(CONFIG.AGE_MIN || 14); });
     var metrika = /^\d+$/.test(String(CONFIG.METRIKA_ID || '').trim());
     document.querySelectorAll('[data-if-metrika]').forEach(function (el) { el.hidden = !metrika; });
     document.querySelectorAll('[data-if-no-metrika]').forEach(function (el) { el.hidden = metrika; });
@@ -349,6 +379,9 @@
     msToNext: function (now) {
       now = now || Date.now();
       return (daily.day(now) + 1) * DAY_MS - MSK_MS - now;
+    },
+    iso: function (now) {
+      return new Date(daily.day(now) * DAY_MS).toISOString().slice(0, 10);
     },
     label: function (now) {
       var d = new Date(daily.day(now) * DAY_MS);

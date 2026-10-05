@@ -11,19 +11,8 @@
   var MAX = 4;
   var MISS = ['Не-а. Попробуй ещё.', 'Холодно!', 'Мимо, но смело.', 'Хорошая версия, но нет.', 'Почти? Нет, не почти.'];
   var WIN = ['С первой попытки! Это было мощно.', 'Со второй попытки! Отлично.', 'С третьей попытки — всё равно победа.', 'На последней попытке! Нервы как сталь.'];
-  var n, riddle, state, stats, timer;
-
-  // Порядок загадок перемешан один раз и навсегда, чтобы они не шли подряд по списку
-  function order() {
-    var idx = R.map(function (_, i) { return i; });
-    var seed = 20261001;
-    for (var i = idx.length - 1; i > 0; i--) {
-      seed = (seed * 1103515245 + 12345) % 2147483648;
-      var j = seed % (i + 1);
-      var t = idx[i]; idx[i] = idx[j]; idx[j] = t;
-    }
-    return idx;
-  }
+  var n, date, riddle, state, stats, timer;
+  var Cloud = window.Cloud && window.Cloud.enabled ? window.Cloud : null;
 
   function norm(s) {
     return String(s).toLowerCase().replace(/ё/g, 'е').replace(/[^a-zа-я0-9]+/g, ' ').trim();
@@ -57,9 +46,12 @@
 
   function load() {
     n = App.daily.number();
-    riddle = R[order()[(n - 1) % R.length]];
+    date = App.daily.iso();
+    riddle = window.pickRiddle(n);
     state = App.store.get('riddle', null);
     if (!state || state.n !== n) state = { n: n, guesses: [], solved: false, done: false, hint: false };
+    // Если сегодня уже отвечали — держимся той загадки, на которую отвечали
+    if (state.r && state.r.q) riddle = state.r;
     stats = App.store.get('riddleStats', { played: 0, wins: 0, streak: 0, best: 0, lastWin: 0 });
     // Серия обнуляется, если пропущен день
     if (stats.streak && stats.lastWin < n - 1 && !(state.done && state.solved)) stats.streak = 0;
@@ -136,6 +128,7 @@
             '<div><dt>Рекорд серии</dt><dd>' + stats.best + '</dd></div>' +
           '</dl>' +
           '<p class="riddle__next">Новая загадка через <b data-riddle-timer>--:--:--</b></p>' +
+          '<p class="guest-hint" data-guest-hint hidden></p>' +
         '</div>';
     }
     box.innerHTML = html;
@@ -151,7 +144,13 @@
     state.done = true;
     state.solved = solved;
     stats.played++;
+    if (Cloud) {
+      Cloud.count('stats/riddle/days/' + date, solved ? 'win' + state.guesses.length : 'lose', 'riddle:' + date);
+      if (state.hint) Cloud.count('stats/riddle/days/' + date, 'hint', 'riddle-hint:' + date);
+    }
     if (solved) {
+      var solvedDays = App.store.get('riddleSolved', []);
+      if (solvedDays.indexOf(date) === -1) App.store.set('riddleSolved', solvedDays.concat(date).slice(-400));
       stats.wins++;
       stats.streak = stats.lastWin === n - 1 ? stats.streak + 1 : 1;
       stats.best = Math.max(stats.best, stats.streak);
@@ -179,6 +178,7 @@
       return;
     }
     state.guesses.push(guess);
+    state.r = { q: riddle.q, a: riddle.a, h: riddle.h };
     var msg;
     if (isRight(guess)) {
       finish(true);
@@ -207,5 +207,19 @@
   });
 
   load();
-  render();
+  if (Cloud && !state.r) {
+    // Админ мог поставить на сегодня свою загадку. Ждём ответ не дольше 2,5 секунды.
+    box.innerHTML = '<p class="riddle__q">Загружаем загадку дня…</p>';
+    var shown = false;
+    var show = function (r) {
+      if (shown) return;
+      shown = true;
+      if (r) riddle = r;
+      render();
+    };
+    Cloud.schedule(date).then(show, function () { show(null); });
+    setTimeout(function () { show(null); }, 2500);
+  } else {
+    render();
+  }
 })();

@@ -34,7 +34,7 @@ jobs:
           mkdir _site
           rsync -a \
             --exclude '.git' --exclude '.github' --exclude '_site' \
-            --exclude 'tools' --exclude 'README.md' --exclude '.gitignore' \
+            --exclude 'tools' --exclude 'README.md' --exclude '.gitignore'             --exclude '.gitattributes' --exclude 'firestore.rules' \
             ./ _site/
           node tools/set-site-url.js _site "${{ steps.pages.outputs.base_url }}"
 

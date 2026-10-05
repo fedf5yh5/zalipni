@@ -119,6 +119,7 @@
         '<p class="eg__final"><b>' + score + '</b> ' + word(score) + ' за минуту</p>' +
         '<p class="eg__verdict">' + (record && data.games > 1 ? 'Новый рекорд! ' : '') + verdict + '</p>' +
         '<p class="eg__best">Рекорд: ' + data.best + ' · Сыграно раундов: ' + data.games + '</p>' +
+        '<p class="guest-hint" data-guest-hint hidden></p>' +
         '<div class="quiz-result__actions">' +
           '<button class="btn" type="button" data-emoji-again>Ещё раунд</button>' +
           '<button class="btn btn--ghost" type="button" data-emoji-share>Поделиться</button>' +

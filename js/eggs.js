@@ -123,6 +123,7 @@
     found[id] = Date.now();
     App.store.set('secrets', found);
     App.updateCounters();
+    if (window.Cloud) window.Cloud.count('stats/secrets', id, 'secret:' + id);
 
     var count = App.secretsFound();
     var total = SECRETS.length;
@@ -153,8 +154,8 @@
   }
 
   function reset() {
-    App.store.set('secrets', {});
-    App.store.set('tried', {});
+    App.store.remove('secrets');
+    App.store.remove('tried');
     App.updateCounters();
     document.dispatchEvent(new CustomEvent('secret:found', { detail: { id: null } }));
   }
@@ -165,6 +166,7 @@
     if (!tried[toolId]) {
       tried[toolId] = true;
       App.store.set('tried', tried);
+      if (window.Cloud) window.Cloud.count('stats/games', toolId, 'game:' + toolId);
     }
     var all = TOOL_IDS.every(function (t) { return tried[t]; });
     if (all) find('explorer');
