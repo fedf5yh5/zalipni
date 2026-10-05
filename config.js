@@ -39,7 +39,7 @@ window.CONFIG = {
   },
 
   // Где физически хранятся данные Firebase (для политики), например 'Европа (eur3)'
-  FIREBASE_REGION: 'TODO_REGION',
+  FIREBASE_REGION: 'Европа, Финляндия (europe-north1)',
 
   // С какого возраста можно создать аккаунт
   AGE_MIN: 14
